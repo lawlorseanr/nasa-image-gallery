@@ -8,12 +8,12 @@ const axios = require('axios');
 const BASE_URL = 'https://images-api.nasa.gov/search?'
 
 const NASA = axios.create({
-  baseURL: BASE_URL
+  baseURL: BASE_URL,
   headers: {
     common: {
       'Content-Type': 'application/json',
-    }
-  }
-})
+    },
+  },
+});
 
 module.exports = NASA;
