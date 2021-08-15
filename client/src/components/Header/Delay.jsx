@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Delay = ({ delayTime, handleToggleDelay, handleDelayChange }) => {
   return (
     <div id='app-header-title-delay'>
+      <span id='toggle-delay'>Toggle Delay:</span>
       <label htmlFor='delay-toggle' className='switch'>
         <input
           id='delay-toggle'
@@ -12,7 +13,7 @@ const Delay = ({ delayTime, handleToggleDelay, handleDelayChange }) => {
         />
         <span className='slider' />
       </label>
-      <label htmlFor='delay-amount'>
+      <label id='delay-amount' htmlFor='delay-amount'>
         Delay (ms):
         <input
           type='text'
