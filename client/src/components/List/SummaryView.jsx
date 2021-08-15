@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import moment from 'moment';
 
 const SummaryView = ({ element }) => {
   return (
@@ -10,9 +11,10 @@ const SummaryView = ({ element }) => {
         alt='Space'
       />
       <div
-        className='app-list-summary-thumbnail'
+        className='app-list-summary-title'
       >
-        {`Title: ${element.data[0].title}`}
+        <h3 className='app-list-summary-title-text'>{element.data[0].title}</h3>
+        <h4 className='app-list-summary-title-date'>{moment(element.data[0].date_created).format('MMMM YYYY')}</h4>
       </div>
     </div>
   );

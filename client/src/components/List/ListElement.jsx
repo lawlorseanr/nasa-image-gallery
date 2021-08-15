@@ -22,7 +22,7 @@ const ListElement = ({ element }) => {
   }
   return (
     <div
-    className='app-list-container'
+      className='app-list-container'
       aria-hidden
       onClick={() => setView(!isSummaryView)}
       onKeyPress={() => setView(!isSummaryView)}
