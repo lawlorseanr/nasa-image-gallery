@@ -14,7 +14,6 @@ const Title = ({ handleToggleDelay, handleDelayChange }) => {
         <h1>NASA Image Gallery</h1>
       </div>
       <Delay
-        id='app-header-title-delay'
         handleToggleDelay={handleToggleDelay}
         handleDelayChange={handleDelayChange}
       />

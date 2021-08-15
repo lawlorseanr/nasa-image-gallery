@@ -3,5 +3,7 @@
   keys aren't exposed via the client.
 
   However, this particular key is not strictly required and is easy to get via https://api.nasa.gov/.
+
+  This file largely serves as a placeholder/example.
 */
-module.exports = 'G1YGWrHAmVHpbNzqBehd8CkBTc6Q6UZ8SSzTRar1';
+module.exports = 'API_KEY';
