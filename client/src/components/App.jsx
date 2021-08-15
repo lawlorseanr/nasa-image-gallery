@@ -10,12 +10,18 @@ class App extends React.Component {
     this.state = {
       list: [],
     };
+
+    this.setList = this.setList.bind(this);
+  }
+
+  setList(list) {
+    this.setState({ list });
   }
 
   render() {
     return (
       <div id='app'>
-        <Header />
+        <Header setList={this.setList} />
         <List list={this.state.list} />
       </div>
     );

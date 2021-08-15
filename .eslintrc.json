@@ -21,6 +21,7 @@
         "import/extensions": "off",
         "arrow-body-style": "off",
         "jsx-quotes": "off",
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "no-console": "off"
     }
 }

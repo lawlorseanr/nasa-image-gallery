@@ -1,12 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Delay from './Delay.jsx';
 
-export default ({ props }) => {
+const Title = ({ handleToggleDelay, handleDelayChange }) => {
   return (
     <div id='app-header-title'>
-      Title
-      <Delay />
+      <div id='app-header-title-banner'>
+        <img
+          src='https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg'
+          alt='NASA!'
+        />
+        <h1>NASA Image Gallery</h1>
+      </div>
+      <Delay
+        id='app-header-title-delay'
+        handleToggleDelay={handleToggleDelay}
+        handleDelayChange={handleDelayChange}
+      />
     </div>
   );
 };
+
+Title.propTypes = {
+  handleToggleDelay: PropTypes.func.isRequired,
+  handleDelayChange: PropTypes.func.isRequired,
+};
+
+export default Title;

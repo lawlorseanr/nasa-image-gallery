@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Title from './Header/Title.jsx';
 import Search from './Header/Search.jsx';
 import Filter from './Header/Filter.jsx';
 
+import NASA from '../lib/NASA.js';
+
 class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       search: '',
@@ -14,25 +17,55 @@ class Header extends React.Component {
       filterWords: [],
       filteredList: [],
       filterOptions: [],
+      isDelayed: false,
+      delayTime: 0,
     };
+
+    this.setList = props.setList;
+    this.handleToggleDelay = this.handleToggleDelay.bind(this);
+    this.handleDelayChange = this.handleDelayChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
-  componentDidMount() {
+  handleToggleDelay() {
+    const { isDelayed } = this.state;
+    this.setState({ isDelayed: !isDelayed });
+  }
 
+  handleDelayChange(delayTime) {
+    this.setState({ delayTime });
+  }
+
+  handleSearch() {
+    setTimeout(() => {
+      NASA.get('')
+        .then((response) => {
+          this.setList(response.data);
+        })
+        .catch((error) => console.error(error));
+    }, this.state.delayTime);
   }
 
   render() {
     return (
       <div id='app-header'>
-        <Title />
-        <Search />
-        <Filter />
+        <Title
+          handleToggleDelay={this.handleToggleDelay}
+          handleDelayChange={this.handleDelayChange}
+        />
+        <Search
+          handleSearch={this.handleSearch}
+        />
+        <Filter
+          filters={this.state.filterOptions}
+        />
       </div>
     );
   }
 }
 
 Header.propTypes = {
+  setList: PropTypes.func.isRequired,
 };
 
 export default Header;
