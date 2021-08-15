@@ -7,10 +7,9 @@
   margin: 0 auto;
 }
 
-/*
-    HEADER
-*/
-
+/* ===========
+    Header
+=========== */
 #app-header {
   min-width: 850px;
   margin: 0 auto;
@@ -20,6 +19,7 @@
   background-color: white;
   justify-content: space-between;
   z-index: 10;
+  font-size: 20px;
 }
 
 #app-header-title {
@@ -29,6 +29,7 @@
 }
 
 #app-header-title-banner {
+  width: 60%;
   display: flex;
   flex-direction: row;
 }
@@ -41,12 +42,34 @@
   justify-content: flex-start;
 }
 
+/* ===========
+    Search
+=========== */
+#app-header-search {
+  margin: 10px 0;
+  width: 100%;
+}
+
+input#search-input {
+  width: 40%;
+  margin: 0 10px;
+  font-size: 80%;
+}
+
+input#search-button {
+  height: 100%;
+  font-size: 80%;
+}
+
 label#delay-amount {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+/* ===========
+    Delay
+=========== */
 input#delay-amount {
   max-width: 50px;
 }
@@ -64,9 +87,9 @@ span#toggle-delay {
   margin-bottom: 5px;
 }
 
-/*
-    LIST
-*/
+/* ===========
+    List
+=========== */
 #app-list {
   min-width: 700px;
   max-width: 800px;
@@ -86,6 +109,9 @@ span#toggle-delay {
   transform: scale(0.95);
 }
 
+/* ===========
+    Summary
+=========== */
 .app-list-summary {
   display: flex;
   flex: 1;
@@ -117,10 +143,9 @@ h3.app-list-summary-title-text {
   margin: 0;
 }
 
-/*
-    SLIDER
-*/
-/* The switch - the box around the slider */
+/* ===========
+  Delay Toggle
+=========== */
 .switch {
   position: relative;
   display: inline-block;
@@ -128,14 +153,12 @@ h3.app-list-summary-title-text {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;

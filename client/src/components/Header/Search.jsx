@@ -18,7 +18,7 @@ const Search = ({ handleSearch }) => {
       <input
         type='button'
         id='search-button'
-        value='Liftoff! (Search)'
+        value='Search'
         onClick={(e) => {
           e.preventDefault();
           handleSearch(search);
