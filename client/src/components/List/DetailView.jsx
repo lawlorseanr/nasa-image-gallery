@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-export default ({ props }) => {
+const DetailView = ({ element }) => {
   return (
     <div>
-      DetailView
+      DefaultView
     </div>
   );
 };
+
+export default DetailView;

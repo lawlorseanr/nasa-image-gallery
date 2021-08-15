@@ -9,8 +9,31 @@
   flex-direction: row;
 }
 
+.app-list-container {
+  padding: 10px;
+}
 
+.app-list-summary {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  max-height: 150px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  justify-content: flex-start;
+}
 
+.app-list-summary-thumbnail {
+  min-width: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.app-list-summary-title {
+  display: flex;
+  flex: 1;
+}
 
 
 /*

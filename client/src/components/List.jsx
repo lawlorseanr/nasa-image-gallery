@@ -9,7 +9,7 @@ const List = ({ list }) => {
       {list.map((element) => (
         <ListElement
           key={element.data[0].nasa_id}
-          element={element.data[0]}
+          element={element}
         />
       ))}
     </div>

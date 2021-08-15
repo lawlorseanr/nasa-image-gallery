@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 import DetailView from './DetailView.jsx';
 import SummaryView from './SummaryView.jsx';
@@ -10,6 +10,7 @@ const ListElement = ({ element }) => {
   if (isSummaryView) {
     return (
       <div
+        className='app-list-container'
         aria-hidden
         onClick={() => setView(!isSummaryView)}
         onKeyPress={() => setView(!isSummaryView)}
@@ -21,25 +22,15 @@ const ListElement = ({ element }) => {
   }
   return (
     <div
+    className='app-list-container'
       aria-hidden
       onClick={() => setView(!isSummaryView)}
       onKeyPress={() => setView(!isSummaryView)}
       role='button'
     >
-      <DetailView
-        element={element}
-      />
+      <DetailView element={element} />
     </div>
   );
-};
-
-ListElement.propTypes = {
-  element: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
-  ).isRequired,
 };
 
 export default ListElement;

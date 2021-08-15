@@ -27,6 +27,10 @@ class Header extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    this.handleSearch('jupiter');
+  }
+
   handleToggleDelay() {
     const { isDelayed, delayTime } = this.state;
     const updateDelay = isDelayed ? 0 : delayTime;
