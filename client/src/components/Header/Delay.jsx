@@ -12,12 +12,12 @@ const Delay = ({ handleToggleDelay, handleDelayChange }) => {
         />
         <span className='slider' />
       </label>
-      <label htmlFor="delay-amount">
+      <label htmlFor='delay-amount'>
         Delay (ms):
         <input
-          type="text"
-          id="delay-amount"
-          name="delay-amount"
+          type='text'
+          id='delay-amount'
+          name='delay-amount'
           onChange={(e) => handleDelayChange(parseInt(e.target.value, 10))}
         />
       </label>

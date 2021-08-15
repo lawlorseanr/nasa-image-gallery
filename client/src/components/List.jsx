@@ -6,7 +6,7 @@ import ListElement from './List/ListElement.jsx';
 const List = ({ list }) => {
   return (
     <div>
-      {list.map((element, i) => <ListElement key={i} element={element} />)}
+      {list.map((element) => <ListElement key={element.data[0].nasa_id} element={element} />)}
     </div>
   );
 };

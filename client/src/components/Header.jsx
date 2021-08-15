@@ -36,14 +36,21 @@ class Header extends React.Component {
     this.setState({ delayTime });
   }
 
-  handleSearch() {
-    setTimeout(() => {
-      NASA.get('')
-        .then((response) => {
-          this.setList(response.data);
+  handleSearch(search) {
+    this.setState({ search }, () => {
+      setTimeout(() => {
+        NASA.get('/search', {
+          params: {
+            q: this.state.search,
+            media_type: 'image',
+          },
         })
-        .catch((error) => console.error(error));
-    }, this.state.delayTime);
+          .then((response) => {
+            this.setList(response.data.collection.items);
+          })
+          .catch((error) => console.error(error));
+      }, this.state.delayTime);
+    });
   }
 
   render() {
