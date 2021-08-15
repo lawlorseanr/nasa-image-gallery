@@ -28,8 +28,12 @@ class Header extends React.Component {
   }
 
   handleToggleDelay() {
-    const { isDelayed } = this.state;
-    this.setState({ isDelayed: !isDelayed });
+    const { isDelayed, delayTime } = this.state;
+    const updateDelay = isDelayed ? 0 : delayTime;
+    this.setState({
+      isDelayed: !isDelayed,
+      delayTime: updateDelay,
+    });
   }
 
   handleDelayChange(delayTime) {
@@ -57,6 +61,7 @@ class Header extends React.Component {
     return (
       <div id='app-header'>
         <Title
+          delayTime={this.state.delayTime}
           handleToggleDelay={this.handleToggleDelay}
           handleDelayChange={this.handleDelayChange}
         />

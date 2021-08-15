@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Delay = ({ handleToggleDelay, handleDelayChange }) => {
+const Delay = ({ delayTime, handleToggleDelay, handleDelayChange }) => {
   return (
     <div id='app-header-title-delay'>
       <label htmlFor='delay-toggle' className='switch'>
@@ -18,6 +18,7 @@ const Delay = ({ handleToggleDelay, handleDelayChange }) => {
           type='text'
           id='delay-amount'
           name='delay-amount'
+          value={delayTime}
           onChange={(e) => handleDelayChange(parseInt(e.target.value, 10))}
         />
       </label>
@@ -26,6 +27,7 @@ const Delay = ({ handleToggleDelay, handleDelayChange }) => {
 };
 
 Delay.propTypes = {
+  delayTime: PropTypes.number.isRequired,
   handleToggleDelay: PropTypes.func.isRequired,
   handleDelayChange: PropTypes.func.isRequired,
 };
