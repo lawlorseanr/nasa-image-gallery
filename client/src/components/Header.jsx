@@ -51,6 +51,7 @@ class Header extends React.Component {
           params: {
             q: this.state.search,
             media_type: 'image',
+            page: 1,
           },
         })
           .then((response) => {

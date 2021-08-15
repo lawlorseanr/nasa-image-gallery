@@ -6,6 +6,7 @@ import ListElement from './List/ListElement.jsx';
 const List = ({ list }) => {
   return (
     <div id='app-list'>
+      {}
       {list.map((element) => (
         <ListElement
           key={element.data[0].nasa_id}

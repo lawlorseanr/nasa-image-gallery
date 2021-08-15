@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 
-import DetailView from './DetailView.jsx';
-import SummaryView from './SummaryView.jsx';
+const DetailView = React.lazy(() => import('./DetailView.jsx'));
+const SummaryView = React.lazy(() => import('./SummaryView.jsx'));
 
 const ListElement = ({ element }) => {
   const [isSummaryView, setView] = useState(true);
@@ -16,7 +16,9 @@ const ListElement = ({ element }) => {
         onKeyPress={() => setView(!isSummaryView)}
         role='button'
       >
-        <SummaryView element={element} />
+        <Suspense fallback={(<div>Loading...</div>)}>
+          <SummaryView element={element} />
+        </Suspense>
       </div>
     );
   }
@@ -28,7 +30,9 @@ const ListElement = ({ element }) => {
       onKeyPress={() => setView(!isSummaryView)}
       role='button'
     >
-      <DetailView element={element} />
+      <Suspense fallback={(<div>Loading...</div>)}>
+        <DetailView element={element} />
+      </Suspense>
     </div>
   );
 };
