@@ -5,12 +5,21 @@ const Delay = ({ handleToggleDelay, handleDelayChange }) => {
   return (
     <div id='app-header-title-delay'>
       <label htmlFor='delay-toggle' className='switch'>
-        <input id='delay-toggle' type='checkbox' />
+        <input
+          id='delay-toggle'
+          type='checkbox'
+          onChange={(e) => handleToggleDelay(e.target.checked)}
+        />
         <span className='slider' />
       </label>
       <label htmlFor="delay-amount">
         Delay (ms):
-        <input type="text" id="delay-amount" name="delay-amount" />
+        <input
+          type="text"
+          id="delay-amount"
+          name="delay-amount"
+          onChange={(e) => handleDelayChange(parseInt(e.target.value, 10))}
+        />
       </label>
     </div>
   );
