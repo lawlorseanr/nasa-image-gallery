@@ -42,6 +42,14 @@
   justify-content: flex-start;
 }
 
+img#loading-gif {
+  display: flex;
+  flex: 0;
+  width: 46px;
+  height: 46px;
+  margin: auto 10px auto auto;
+}
+
 /* ===========
     Search
 =========== */
