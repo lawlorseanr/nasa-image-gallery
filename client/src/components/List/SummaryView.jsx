@@ -13,8 +13,10 @@ const SummaryView = ({ element }) => {
       <div
         className='app-list-summary-title'
       >
-        <h3 className='app-list-summary-title-text'>{element.data[0].title}</h3>
-        <h4 className='app-list-summary-title-date'>{moment(element.data[0].date_created).format('MMMM YYYY')}</h4>
+        <h2 className='app-list-summary-title-text'>Title:</h2>
+        <span className='app-list-summary-title-text'>{element.data[0].title || 'Space: the final frontier'}</span>
+        <h3 className='app-list-summary-title-date'>Date: </h3>
+        <span className='app-list-summary-title-date'>{moment(element.data[0].date_created).format('MMMM YYYY') || 'Eons ago...'}</span>
       </div>
     </div>
   );

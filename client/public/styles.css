@@ -143,8 +143,8 @@ span#toggle-delay {
   width: 100%;
 }
 
-h4.app-list-summary-title-date,
-h3.app-list-summary-title-text {
+h3.app-list-summary-title-date,
+h2.app-list-summary-title-text {
   margin: 0;
 }
 
@@ -180,19 +180,12 @@ h3.app-list-summary-title-text {
   overflow-y: auto;
 }
 
-h3.app-list-detail-title,
-h4.app-list-detail-date,
-h4.app-list-detail-center,
-h4.app-list-detail-owner,
-h4.app-list-detail-description {
+h3.app-list-detail,
+h4.app-list-detail {
   margin: 0;
 }
 
-span.app-list-detail-title,
-span.app-list-detail-date,
-span.app-list-detail-center,
-span.app-list-detail-owner,
-span.app-list-detail-description {
+span.app-list-detail {
   margin-bottom: 5px;
 }
 
