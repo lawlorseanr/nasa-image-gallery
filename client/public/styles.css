@@ -11,6 +11,8 @@
     Header
 =========== */
 #app-header {
+  display: flex;
+  flex-direction: column;
   min-width: 850px;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -59,7 +61,7 @@ img#loading-gif {
 }
 
 input#search-input {
-  width: 40%;
+  min-width: 300px;
   margin: 0 10px;
   font-size: 80%;
 }
@@ -95,6 +97,39 @@ label#delay-amount {
 
 span#toggle-delay {
   margin-bottom: 5px;
+}
+
+/* ===========
+    Filter
+=========== */
+#app-header-search {
+  display: flex;
+}
+
+/* ===========
+    Filter
+=========== */
+#app-header-filter {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#app-header-filter-by,
+#app-header-filter-where {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+span.app-header-filter-text {
+  margin: 0;
+}
+
+select#filter-choice,
+select#filter-where {
+  margin: 0 10px 0 5px;
 }
 
 /* ===========

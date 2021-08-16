@@ -9,6 +9,7 @@ class App extends React.Component {
 
     this.state = {
       list: [],
+      filter: '',
     };
 
     this.setList = this.setList.bind(this);

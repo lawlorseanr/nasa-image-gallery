@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import Title from './Header/Title.jsx';
 import Search from './Header/Search.jsx';
@@ -16,7 +17,11 @@ class Header extends React.Component {
       list: [],
       filterWords: [],
       filteredList: [],
-      filterOptions: [],
+      filterOptions: {
+        center: new Set(),
+        year: new Set(),
+        keyword: new Set(),
+      },
       isDelayed: false,
       delayTime: 0,
     };
@@ -28,7 +33,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    this.handleSearch('jupiter');
+    this.handleSearch('Jupiter');
   }
 
   handleToggleDelay() {
@@ -55,7 +60,22 @@ class Header extends React.Component {
           },
         })
           .then((response) => {
-            this.setList(response.data.collection.items);
+            const list = response.data.collection.items;
+            const filterOptions = {
+              center: new Set(),
+              year: new Set(),
+              keyword: new Set(),
+            };
+            list.forEach((entry) => {
+              filterOptions.center.add(entry.data[0].center);
+              filterOptions.year.add(moment(entry.data[0].date_created).format('YYYY'));
+              entry.data[0].keywords.forEach((keyword) => filterOptions.keyword.add(keyword));
+            });
+            this.setState({
+              filterOptions,
+              search,
+            });
+            this.setList(list);
           })
           .catch((error) => console.error(error));
       }, this.state.delayTime);
@@ -74,7 +94,7 @@ class Header extends React.Component {
           handleSearch={this.handleSearch}
         />
         <Filter
-          filters={this.state.filterOptions}
+          filterOptions={this.state.filterOptions}
         />
       </div>
     );
