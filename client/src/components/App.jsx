@@ -9,10 +9,20 @@ class App extends React.Component {
 
     this.state = {
       list: [],
-      filter: '',
+      filter: {},
     };
 
     this.setList = this.setList.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
+
+  handleFilterChange(key, value) {
+    this.setState({
+      filter: {
+        key,
+        value,
+      },
+    });
   }
 
   setList(list) {
@@ -22,8 +32,14 @@ class App extends React.Component {
   render() {
     return (
       <div id='app'>
-        <Header setList={this.setList} />
-        <List list={this.state.list} />
+        <Header
+          setList={this.setList}
+          handleFilterChange={this.handleFilterChange}
+        />
+        <List
+          list={this.state.list}
+          filter={this.state.filter}
+        />
       </div>
     );
   }

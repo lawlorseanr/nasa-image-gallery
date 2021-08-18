@@ -13,14 +13,11 @@ class Header extends React.Component {
     super(props);
 
     this.state = {
-      search: '',
-      list: [],
-      filterWords: [],
-      filteredList: [],
       filterOptions: {
+        all: new Set(),
         center: new Set(),
-        year: new Set(),
-        keyword: new Set(),
+        date_created: new Set(),
+        keywords: new Set(),
       },
       isDelayed: false,
       delayTime: 0,
@@ -50,36 +47,36 @@ class Header extends React.Component {
   }
 
   handleSearch(search) {
-    this.setState({ search }, () => {
-      setTimeout(() => {
-        NASA.get('/search', {
-          params: {
-            q: this.state.search,
-            media_type: 'image',
-            page: 1,
-          },
+    setTimeout(() => {
+      NASA.get('/search', {
+        params: {
+          q: search,
+          media_type: 'image',
+          page: 1,
+        },
+      })
+        .then((response) => {
+          const list = response.data.collection.items;
+          const filterOptions = {
+            all: new Set(),
+            center: new Set(),
+            date_created: new Set(),
+            keywords: new Set(),
+          };
+          list.forEach((entry) => {
+            filterOptions.center.add(entry.data[0].center);
+            filterOptions.date_created.add(moment(entry.data[0].date_created).format('YYYY'));
+            if (entry.data[0].keywords) {
+              entry.data[0].keywords.forEach((keyword) => filterOptions.keywords.add(keyword));
+            }
+          });
+          this.setState({
+            filterOptions,
+          });
+          this.setList(list);
         })
-          .then((response) => {
-            const list = response.data.collection.items;
-            const filterOptions = {
-              center: new Set(),
-              year: new Set(),
-              keyword: new Set(),
-            };
-            list.forEach((entry) => {
-              filterOptions.center.add(entry.data[0].center);
-              filterOptions.year.add(moment(entry.data[0].date_created).format('YYYY'));
-              entry.data[0].keywords.forEach((keyword) => filterOptions.keyword.add(keyword));
-            });
-            this.setState({
-              filterOptions,
-              search,
-            });
-            this.setList(list);
-          })
-          .catch((error) => console.error(error));
-      }, this.state.delayTime);
-    });
+        .catch((error) => console.error(error));
+    }, this.state.delayTime);
   }
 
   render() {
@@ -95,6 +92,7 @@ class Header extends React.Component {
         />
         <Filter
           filterOptions={this.state.filterOptions}
+          handleFilterChange={this.props.handleFilterChange}
         />
       </div>
     );
@@ -103,6 +101,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   setList: PropTypes.func.isRequired,
+  handleFilterChange: PropTypes.func.isRequired,
 };
 
 export default Header;
