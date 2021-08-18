@@ -4,8 +4,8 @@
   "description": "Single page app with list view and detail view",
   "main": "index.js",
   "scripts": {
-    "bundle": "npx webpack --mode=production",
-    "bundle:watch": "npx webpack --mode=development --watch",
+    "build": "npx webpack --mode=production",
+    "build:watch": "npx webpack --mode=development --watch",
     "server": "nodemon ./server/index.js",
     "test": "jest"
   },
