@@ -100,7 +100,7 @@ span#toggle-delay {
 }
 
 /* ===========
-    Filter
+    Search
 =========== */
 #app-header-search {
   display: flex;
@@ -189,6 +189,10 @@ select#filter-where {
 h3.app-list-summary-title-date,
 h2.app-list-summary-title-text {
   margin: 0;
+}
+
+img#loading-gif {
+  opacity: 0;
 }
 
 /* ===========

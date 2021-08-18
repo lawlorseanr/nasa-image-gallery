@@ -47,6 +47,8 @@ class Header extends React.Component {
   }
 
   handleSearch(search) {
+    const gif = document.getElementById('loading-gif');
+    gif.style.opacity = 1;
     setTimeout(() => {
       NASA.get('/search', {
         params: {
@@ -75,7 +77,8 @@ class Header extends React.Component {
           });
           this.setList(list);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => console.error(error))
+        .finally(() => { gif.style.opacity = 0; });
     }, this.state.delayTime);
   }
 

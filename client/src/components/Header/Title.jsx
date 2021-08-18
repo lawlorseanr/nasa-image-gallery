@@ -13,7 +13,7 @@ const Title = ({ delayTime, handleToggleDelay, handleDelayChange }) => {
         />
         <h1>NASA Image Gallery</h1>
       </div>
-      {/* <img id='loading-gif' src="./assets/spiffygif_46x46.gif" alt='Spinner' /> */}
+      <img id='loading-gif' src="./assets/spiffygif_46x46.gif" alt='Spinner' />
       <Delay
         delayTime={delayTime}
         handleToggleDelay={handleToggleDelay}
