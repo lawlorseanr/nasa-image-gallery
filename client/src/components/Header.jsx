@@ -58,6 +58,7 @@ class Header extends React.Component {
         },
       })
         .then((response) => {
+          console.log(response.data);
           const list = response.data.collection.items;
           const filterOptions = {
             all: new Set(),
